@@ -4,22 +4,22 @@ function love.load()
 		
 	width = 1024
 	height = 768
-	CELL_SIZE = height/80
+	CELL_SIZE = height/160
 	
 	love.graphics.setMode( width, height, false, true, 1 )
 	--love.graphics.print("---------------------------------------------------------------")
 	
 	--math.randomseed(1)
-	--math.randomseed(os.time()*10000)
+	math.randomseed(os.time()*10000)
 	grid = getNewGrid()
 	for x = 0,width/CELL_SIZE do
 		grid[x] = {}
 		for y = 0,height/CELL_SIZE do
-			if x > 20 and x < 40 and y > 20 and y < 40 then
+			if x > 20 and x < 100 and y > 20 and y < 100 then
 				--girid[x][y] = 0;			
-				--grid[x][y] = math.random(0,1)
+				grid[x][y] = math.random(0,1)
 			end
-			grid[x][y] = math.random(1,2)
+			--grid[x][y] = math.random(1,2)
 			--grid[x][y] = 0;	
 		end
 	end
@@ -52,7 +52,7 @@ function getNewGrid()
 end
 
 function love.update(dt)
-	love.timer.sleep(100)
+	love.timer.sleep(10)
 	
 	local newGrid = getNewGrid()
 	
